@@ -22,6 +22,7 @@ import warnings
 #mply_p: max_chunks_per_worker of mapply parallelization https://pypi.org/project/mapply/
 
 #warnings.simplefilter(action='ignore', category=pd.errors.RuntimeWarning)
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 class Hypergeom(object):
   def __init__(self,ad,reference,prediction = True,NUniverse = None,min_size = 10,verbose=True,gpu_cuda =None ,adj_pval =True,log_trans = True,mply_p=16):
