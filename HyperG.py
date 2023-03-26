@@ -8,7 +8,7 @@ import numpy as np
 import scipy
 import mapply
 import torch
-
+import warnings
 #Arguments:
 #ad : anndata object of single cell dataset   
 #reference: pandas dataframe (reference gene list) or anndata object for label transfer between dataset 
