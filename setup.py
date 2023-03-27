@@ -11,6 +11,7 @@ setup(
     packages=['Cell2CellMatch'],
     install_requires=['igraph==0.10.2',
 			'leidenalg',
-			'networkx==2.6.3'
+			'networkx==2.6.3',
+		      	'CellIDpy'
 			]
 )
