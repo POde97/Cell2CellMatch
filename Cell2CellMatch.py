@@ -113,7 +113,7 @@ class Cell2CellMatch():
       T = T-2.0
       if T < 2.0:
         T = 2.0
-      print(T)
+      #print(T)
 
       df = H.Intersection.copy()
       maxx = df.values.flatten()[df.values.flatten()!=np.inf].max() + 1 
