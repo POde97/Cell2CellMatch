@@ -59,9 +59,7 @@ class Cell2CellMatch():
       print("Per-batch labelling with reference")
       for x in tqdm.tqdm(self.adlist): 
         Hypergeom(x,ref,verbose = False,mply_p=mply_p)
-      print("ok")
       self.adata.obs = pd.concat([self.adata.obs,pd.concat([xf.obs["gs_prediction"] for xf in self.adlist])],axis=1)
-      print("no")
     signature_list=[pd.DataFrame(self.adlist[i].obs["signature"]) for i in range(len(self.adlist))]
     signature_df =pd.concat(signature_list,axis=0) 
     self.adata.obs = pd.concat([self.adata.obs,signature_df],axis=1)
@@ -114,6 +112,7 @@ class Cell2CellMatch():
       if T < 2.0:
         T = 2.0
       #print(T)
+      self.T = T
 
       df = H.Intersection.copy()
       maxx = df.values.flatten()[df.values.flatten()!=np.inf].max() + 1 
@@ -187,8 +186,8 @@ class Cell2CellMatch():
       
         this_step +=1
 
-      self.adata.obs = pd.concat([self.adata.obs,self.community],axis=1)
-      self.adata.obs["C2C-cl"] = self.adata.obs["C2C-cl"].fillna("unassigned")
+      adata.obs = pd.concat([adata.obs,self.community],axis=1)
+      #self.adata.obs["C2C-cl"] = self.adata.obs["C2C-cl"].fillna("unassigned")
       self.CS = self.XClusterSignature()
       
     
