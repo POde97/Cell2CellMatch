@@ -15,6 +15,7 @@ import torch
 from scipy import sparse
 from scipy.stats import fisher_exact
 import warnings
+import matplotlib.pyplot as plt
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 
 #Cell2CellMatch build functonal network of cells leveraging CellID multiple correspondence analysis based representation.
