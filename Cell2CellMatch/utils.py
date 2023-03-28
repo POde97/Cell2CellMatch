@@ -4,7 +4,7 @@ import os
 import torch
 import random
 import numpy as np 
-from ProteinCoding import*
+from CellIDpy import ProteinCoding
 import scanpy as sc
 
 def runcmd(cmd, verbose = False, *args, **kwargs):
@@ -77,7 +77,7 @@ def seed_everything(seed: int):
 
 
 def preproc(x):
-    x = x[:,x.var_names.isin(HgProteinCoding())].copy()
+    x = x[:,x.var_names.isin(ProteinCoding.HgProteinCoding())].copy()
 
     sc.pp.normalize_total(x, target_sum=1e4)
     sc.pp.log1p(x)
